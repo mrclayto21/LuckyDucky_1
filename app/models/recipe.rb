@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+    has_many :comments
     # validates :userName, presence: true
     # validates :prime, presence: true
     # validates :name, presence: true
