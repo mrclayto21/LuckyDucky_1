@@ -1,4 +1,7 @@
 <h1>new recipe</h1>
+<%= link_to 'Home', root_path %> 
+<%= link_to 'Show Recipes', recipes_path %>
+<%= link_to 'New Recipes', new_recipe_path %>
 
 <%= form_for :recipe, url: recipes_path do |f| %>
   <p>
