@@ -1,0 +1,48 @@
+<h2>Testing recipe partial</h2>
+<br>
+
+<%= form_for @recipe do |f| %>
+  <p>
+    <%= f.label :userName %><br>
+    <%= f.text_field :userName, :maxlength => 60, :size => 60 %>
+  </p>
+  
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :maxlength => 60, :size => 60 %>
+  </p>
+ 
+  <p>
+    <%= f.label :prime %><br>
+    <%= f.select :prime, options_for_select([['Breakfast', 1], ['Lunch', 2], ['Dinner', 3], ['Dessert', 4], ['Drink', 5]]) %>
+  </p>
+  
+  <p>
+    <%= f.label :secondary %><br>
+    <%= f.select :secondary, options_for_select([['Breakfast', 1], ['Lunch', 2], ['Dinner', 3], ['Dessert', 4], ['Drink', 5]]) %>
+  </p>
+  
+  <p>
+    <%= f.label :prep %><br>
+    <%= f.number_field :prep, min: 0 %>
+  </p>
+  
+  <p>
+    <%= f.label :complete %><br>
+    <%= f.number_field :complete, min: 0 %>
+  </p>
+  
+  <p>
+    <%= f.label :ingredients %><br>
+    <%= f.text_area :ingredients, cols:"60", rows: "10" %>
+  </p>
+  
+  <p>
+    <%= f.label :directions %><br>
+    <%= f.text_area :directions, cols:"60", rows: "10" %>
+  </p>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

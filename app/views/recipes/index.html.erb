@@ -4,19 +4,18 @@
 <%= link_to 'New Recipes', new_recipe_path %>
 
 <table>
+  <tr>
+    <th>Recipe Name</th>
+    <th>Ingredients</th>
+  </tr>
+ 
+  <% @recipes.each do |recipe| %>
     <tr>
-        <th>Recipes</th>
+      <td><%= recipe.name %></td>
+      <td><%= recipe.ingredients%></td>
+      <td><%= link_to 'Show', recipe_path(recipe) %></td>
+      <td><%= link_to 'Edit', recipe_path(recipe) %></td>
+      <td><%= link_to 'Delete', recipe_path(recipe), method: :delete, data: {confirm: 'Are you sure?' } %></td>
     </tr>
-    
-    <% @recipe.each do |recipe| %>
-    <tr>
-        <td><%= recipe.name %></td>
-        <td><%= link_to 'Show', recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', 
-                                    
-                                    recipe_path(recipe),
-                                    method: :delete,
-                                    data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
+  <% end %>
 </table>
