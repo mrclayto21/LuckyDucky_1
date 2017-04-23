@@ -13,29 +13,7 @@
   <%= @recipe.ingredients %>
 </p>
 <h2>Comments</h2>
-<% @recipe.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
- 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
+<%= render @recipe.comments %>
+
 <h2>Add a comment:</h2>
-<%= form_for([@recipe, @recipe.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-<%= link_to 'Recipes List', recipes_path %>
+<%= render 'comments/form' %>
