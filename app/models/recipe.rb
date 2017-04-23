@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
-    has_many :comments
+    has_many :comments, dependent: :destroy
     # validates :userName, presence: true
     # validates :prime, presence: true
     # validates :name, presence: true
