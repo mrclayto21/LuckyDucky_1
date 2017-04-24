@@ -1,4 +1,14 @@
 <h2>Testing environment</h2>
+<!--signin-->
+<div>
+    <% if current_user %>
+        <strong><%= current_user.name %></strong>
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <% else %>
+        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+    <% end %>
+</div>
+<%= yield %>
 <%= link_to 'Home', root_path %> 
 <%= link_to 'All Recipes', controller: 'recipes' %>
 <%= link_to 'New Recipes', new_recipe_path %>
