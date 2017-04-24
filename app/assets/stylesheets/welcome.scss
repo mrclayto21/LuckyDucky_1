@@ -11,6 +11,9 @@
 //Welcome - Index (Coverpage)
 body {
     background-color: #3A3D49;
+    font-family: 'Playfair Display', serif;
+    // font-family: 'Oxygen', sans-serif;
+
 }
 
 .container {
@@ -18,10 +21,7 @@ body {
     position: fixed;
     margin-left: auto;
     margin-right: auto;
-    top: 10px;
-    left: 10px;
-    bottom: 10px; 
-    right: 10px;
+
     width: 80%;
     
     overflow-y: auto;
@@ -31,37 +31,38 @@ body {
     background-color: white;
     text-align: center;
     vertical-align: middle;
-    line-height: 90px;
+    line-height: 80px;
     margin: auto;
-    width: 70%;
-    height: 700px;
+    width: 80%;
+    height: 750px;
     padding: 10px;
     overflow-y: hidden;
 }
-
+// Top bar
 .navigation {
   height: 80px;
 }
 
+// unordered list for top bar
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333333;
+  background-color: #35160B;
   display: inline-block;
   width: 100%;
   height: 70px;
 }
 
-
+// list element tag for top bar
 li {
   float: left;
   color: white;
   font-size: 8px;
 }
 
-
+// link attribute top bar
 li a {
   display: inline;
   color: white;
@@ -70,8 +71,9 @@ li a {
   text-decoration: none;
 }
 
+// changes the tab color when hovering in top bar
 li a:hover {
-  background-color: #111111;
+  background-color: #281008;
 }
 
 #nav_right {
