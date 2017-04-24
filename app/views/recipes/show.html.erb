@@ -1,21 +1,64 @@
-<h2>successful submit</h2>
-<%= link_to 'Home', root_path %> 
-<%= link_to 'Show Recipes', recipes_path %>
-<%= link_to 'New Recipes', new_recipe_path %>
+<div class="background-image"></div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
- 
-<p>
-  <strong>Ingredients:</strong>
-  <%= @recipe.ingredients %>
-</p>
+    <!--signin-->
+  <div class="content" style="overflow:auto">
+    <div class="navigation">
+      <ul>
+        <li>
+          <%= link_to "", root_path, class: "fa fa-home fa-2x", :title =>  "Home" %> 
+        </li>
+        <li>
+          <%= link_to '', recipes_path, class: "fa fa-cutlery fa-2x", :title => "Recipes" %>
+        </li>
+      <% if current_user %>
+        <li>
+          <%= link_to '', new_recipe_path, class: "fa fa-plus-circle fa-2x", :title => "Add a Recipe" %>
+        </li>
+      <% end %>
+      <% if current_user %>
+    <!--<li id= "nav_right">-->
+  <!--    <strong><%= current_user.name %></strong><br>-->
+    <!--</li>-->
+        <li id= "nav_right">
+          <%= link_to " Sign-out", signout_path, id: "sign_out", class: "fa fa-sign-out fa-2x", :title => "Sign Out" %>
+        </li>
+      <% else %>
+        <li id= "nav_right">
+          <%= link_to " Sign-in", "/auth/google_oauth2", id: "sign_in", class: "fa fa-sign-in fa-2x", :title => "Sign In" %>
+        </li>
+      <% end %>
+      <%= yield %>
+    </ul>
+  </div>
+  <div class="left_align_form">
+    <h3>Recipe</h3>
+    <strong class="box_Font">Submitter: </strong>
+    <%= @recipe.userName %><br>
+    <strong class="box_Font">Recipe Title: </strong>
+    <%= @recipe.name %><br>
+    <strong class="box_Font">Preparation Time: </strong>
+    <%= @recipe.prep %> minutes <br>
+    <strong class="box_Font">Total Time: </strong>
+    <%= @recipe.complete %> minutes <br>
+    <strong class="box_Font">Ingredients:</strong>
+    <%= @recipe.ingredients %><br>
+    <strong class="box_Font">Directions: </strong>
+    <%= @recipe.directions %><br>
+  </div>
+      <hr>
+  <div class="left_align_form">
+    <h3>Comments</h3>
+    <%= render @recipe.comments %>
 
-<br>
-<h2>Comments</h2>
-<%= render @recipe.comments %>
-
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+    <h2 class="box_Font">Add a comment:</h2>
+    <%= render 'comments/form' %>
+  </div>
+  <br>
+  <hr>
+  <div class="left_align_form">
+    <h3>Video (Testing - to be removed)</h3>
+    <!--testing-->
+  <iframe id="ytplayer" type="text/html" width="680" height="320" src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=0&origin=http://example.com" frameborder="0"></iframe>
+  </div>
+  
+</div>

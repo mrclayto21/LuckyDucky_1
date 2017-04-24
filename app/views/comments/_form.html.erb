@@ -1,14 +1,15 @@
 
 <%= form_for([@recipe, @recipe.comments.build]) do |f| %>
   <p>
-    <%= f.label :commenter %><br>
+    <%= f.label :commenter, class:"box_Font" %><br>
     <%= f.text_field :commenter %>
   </p>
   <p>
-    <%= f.label :body %><br>
+    <%= f.label :body, class:"box_Font" %><br>
     <%= f.text_area :body %>
   </p>
   <p>
     <%= f.submit %>
   </p>
 <% end %>
+
