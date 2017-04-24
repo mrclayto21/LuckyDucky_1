@@ -1,49 +1,41 @@
-<h2>Testing recipe partial</h2>
-<br>
-
 <%= form_for @recipe do |f| %>
-  <p>
-    <%= f.label :userName %><br>
-    <%= f.text_field :userName, :maxlength => 60, :size => 60 %>
-  </p>
-  
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name, :maxlength => 60, :size => 60 %>
-  </p>
- 
-  <p>
-    <%= f.label :prime %><br>
-    <%= f.select :prime, options_for_select([['Breakfast', 1], ['Lunch', 2], ['Dinner', 3], ['Dessert', 4], ['Drink', 5]]) %>
-  </p>
-  
-  <p>
-    <%= f.label :secondary %><br>
-    <%= f.select :secondary, options_for_select([['Breakfast', 1], ['Lunch', 2], ['Dinner', 3], ['Dessert', 4], ['Drink', 5]]) %>
-  </p>
-  
-  <p>
-    <%= f.label :prep %><br>
-    <%= f.number_field :prep, min: 0 %>
-  </p>
-  
-  <p>
-    <%= f.label :complete %><br>
-    <%= f.number_field :complete, min: 0 %>
-  </p>
-  
-  <p>
-    <%= f.label :ingredients %><br>
+<br>
+    <%= f.label :userName, class: "box_Font" %><br>
+    <%= f.text_field :userName, class: "box_control", :maxlength => 60, :size => 60, value: current_user.name %>
+<br>
+<br>
+    <%= f.label :name, class: "box_Font" %><br>
+    <%= f.text_field :name, class: "box_control", :maxlength => 60, :size => 60 %>
+<br>
+  <ul class= "new_form">
+    <li>
+      <%= f.label 'Category', class: "box_Font" %><br>
+      <%= f.select :prime, options_for_select([['Breakfast ', 1], ['Lunch', 2], ['Diner', 3], ['Dessert', 4], ['Drink', 5]]) %>
+    </li>
+    <li>
+      <%= f.label 'Additional', Class: "box_Font"  %><br>
+      <%= f.select :secondary, options_for_select([['Gluten-free', 1],
+        ['Lactose-free', 2], ['Vegan', 3], ['Vegetarian', 4], 
+        ['Low Calorie', 5], ['Low Fat', 6], ['Diabetic', 7], ['Slow Cooker']]) %>  
+    </li>
+    <li>
+      <%= f.label :prep, class: "box_Font" %>
+      <%= f.number_field :prep, min: 0, :value => 0 %>
+    </li>
+    <li>
+      <%= f.label :complete, class: "box_Font" %>
+      <%= f.number_field :complete, min: 0, :value => 0 %>
+    </li>
+  </ul>
+
+
+    <%= f.label :ingredients %>
     <%= f.text_area :ingredients, cols:"60", rows: "10" %>
-  </p>
   
-  <p>
-    <%= f.label :directions %><br>
+    <%= f.label :directions %>
     <%= f.text_area :directions, cols:"60", rows: "10" %>
-  </p>
   
-  <p>
     <%= f.submit %>
-  </p>
-  
+
+
 <% end %>

@@ -1,15 +1,37 @@
-<h2>Testing environment</h2>
-<!--signin-->
-<div>
-    <% if current_user %>
-        <strong><%= current_user.name %></strong>
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
-    <% else %>
-        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
-    <% end %>
+<div class="background-image"></div>
+<div class="container">
+
+    <!--signin-->
+    <div class="content">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <%= link_to "", root_path, class: "fa fa-home fa-2x", :title =>  "Home" %> 
+                </li>
+                <li>
+                    <%= link_to '', recipes_path, class: "fa fa-cutlery fa-2x", :title => "Recipes" %>
+                </li>
+                <% if current_user %>
+                <li>
+                    <%= link_to '', new_recipe_path, class: "fa fa-plus-circle fa-2x", :title => "Add a Recipe" %>
+                </li>
+                <% end %>
+                <% if current_user %>
+                <!--<li id= "nav_right">-->
+                <!--    <strong><%= current_user.name %></strong><br>-->
+                <!--</li>-->
+                <li id= "nav_right">
+                    <%= link_to " Sign-out", signout_path, id: "sign_out", class: "fa fa-sign-out fa-2x", :title => "Sign Out" %>
+                </li>
+                <% else %>
+                <li id= "nav_right">
+                    <%= link_to " Sign-in", "/auth/google_oauth2", id: "sign_in", class: "fa fa-sign-in fa-2x", :title => "Sign In" %>
+                </li>
+                <% end %>
+                <%= yield %>
+            </ul>
+        </div>
+    </div>
 </div>
-<%= yield %>
-<%= link_to 'Home', root_path %> 
-<%= link_to 'All Recipes', controller: 'recipes' %>
-<%= link_to 'New Recipes', new_recipe_path %>
+
 

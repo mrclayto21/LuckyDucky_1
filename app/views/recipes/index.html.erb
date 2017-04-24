@@ -1,21 +1,63 @@
-<h2>recipes index</h2>
-<%= link_to 'Home', root_path %> 
-<%= link_to 'All Recipes', recipes_path %>
-<%= link_to 'New Recipes', new_recipe_path %>
+<div class="background-image"></div>
+<div class="container">
 
-<table>
-  <tr>
-    <th>Recipe Name</th>
-    <th>Ingredients</th>
-  </tr>
- 
-  <% @recipes.each do |recipe| %>
-    <tr>
-      <td><%= recipe.name %></td>
-      <td><%= recipe.ingredients%></td>
-      <td><%= link_to 'Show', recipe_path(recipe) %></td>
-      <td><%= link_to 'Edit', recipe_path(recipe) %></td>
-      <td><%= link_to 'Delete', recipe_path(recipe), method: :delete, data: {confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+
+<div class="content">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <%= link_to "", root_path, class: "fa fa-home fa-2x", :title =>  "Home" %> 
+                </li>
+                <li>
+                    <%= link_to '', recipes_path, class: "fa fa-cutlery fa-2x", :title => "Recipes" %>
+                </li>
+                <% if current_user %>
+                <li>
+                    <%= link_to '', new_recipe_path, class: "fa fa-plus-circle fa-2x", :title => "Add a Recipe" %>
+                </li>
+                <% else %>
+                 
+                <% end %>
+                <% if current_user %>
+                <!--<li id= "nav_right">-->
+                <!--    <strong><%= current_user.name %></strong><br>-->
+                <!--</li>-->
+                <li id= "nav_right">
+                    <%= link_to " Sign-out", signout_path, id: "sign_out", class: "fa fa-sign-out fa-2x", :title => "Sign Out" %>
+                </li>
+                <% else %>
+                <li id= "nav_right">
+                    <%= link_to " Sign-in", "/auth/google_oauth2", id: "sign_in", class: "fa fa-sign-in fa-2x", :title => "Sign In" %>
+                </li>
+                <% end %>
+                <%= yield %>
+            </ul>
+        </div>
+        <div class="content_scrollable">
+          <!--content-->
+          <table>
+            <tr>
+              <th>Recipe Name</th>
+              <th>Category</th>
+            </tr>
+           
+            <% @recipes.each do |recipe| %>
+              <tr>
+                <td><%= recipe.name %></td>
+                
+                <td class = "table_internal"><%= recipe.prime%></td>
+                <td class = "table_internal"><%= link_to '', recipe_path(recipe), class: "fa fa-eye", :title => "Show Recipe" %></td>
+                <% if current_user != nil %>
+                  <% if current_user.name == recipe.userName %>
+                  <td class = "table_internal"><%= link_to '', recipe_path(recipe), class: "fa fa-pencil-square-o", :title => "Edit Recipe" %></td>
+                  <% end %>
+                  <% if current_user.name == recipe.userName %>
+                    <td class = "table_internal"><%= link_to '', recipe_path(recipe), method: :delete, data: {confirm: 'Are you sure?' }, class: "fa fa-trash", :title => "Delete Recipe" %></td>
+                  <% end %>
+                <% end %>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        
+    </div>
