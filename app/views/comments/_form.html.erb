@@ -2,11 +2,11 @@
 <%= form_for([@recipe, @recipe.comments.build]) do |f| %>
   <p>
     <%= f.label :commenter, class:"box_Font" %><br>
-    <%= f.text_field :commenter %>
+    <%= f.text_field :commenter, :style => "width:200px", :value => "Anonymous"  %>
   </p>
   <p>
-    <%= f.label :body, class:"box_Font" %><br>
-    <%= f.text_area :body %>
+    <%= f.label :body , "Comments",  class:"box_Font" %><br>
+    <%= f.text_area :body, :style => "height:200px"%>
   </p>
   <p>
     <%= f.submit %>

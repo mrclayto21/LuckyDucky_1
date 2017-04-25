@@ -31,23 +31,23 @@
     </ul>
   </div>
   <div class="left_align_form">
-    <h3>Recipe</h3>
-    <strong class="box_Font">Submitter: </strong>
+    <p class="testingTitle">Recipe</p>
+    <strong class="box_Font">Submitter| </strong>
     <%= @recipe.userName %><br>
-    <strong class="box_Font">Recipe Title: </strong>
+    <strong class="box_Font">Recipe Title| </strong>
     <%= @recipe.name %><br>
-    <strong class="box_Font">Preparation Time: </strong>
+    <strong class="box_Font">Preparation Time| </strong>
     <%= @recipe.prep %> minutes <br>
-    <strong class="box_Font">Total Time: </strong>
+    <strong class="box_Font">Total Time| </strong>
     <%= @recipe.complete %> minutes <br>
-    <strong class="box_Font">Ingredients:</strong>
+    <strong class="box_Font">Ingredients| </strong>
     <%= @recipe.ingredients %><br>
-    <strong class="box_Font">Directions: </strong>
+    <strong class="box_Font">Directions| </strong>
     <%= @recipe.directions %><br>
   </div>
       <hr>
   <div class="left_align_form">
-    <h3>Comments</h3>
+    <p class="testingTitle">Comments</p>
     <%= render @recipe.comments %>
 
     <h2 class="box_Font">Add a comment:</h2>

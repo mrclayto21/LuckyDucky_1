@@ -5,8 +5,6 @@ class CommentsController < ApplicationController
         redirect_to recipe_path(@recipe)
     end
     
-    # please pay attention to the path and controller names
-    # if you copy and paste change the controller and path names
     def destroy
         @recipe = Recipe.find(params[:recipe_id])
         @comment = @recipe.comments.find(params[:id])
