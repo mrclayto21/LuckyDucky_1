@@ -42,8 +42,7 @@
             <% @recipes.each do |recipe| %>
               <tr>
                 <td><%= recipe.name %></td>
-                
-                <td class = "table_internal"><%= recipe.prime%></td>
+                <td class = "table_internal"><%= recipe.prime %></td>
                 <td class = "table_internal"><%= link_to '', recipe_path(recipe), class: "fa fa-eye", :title => "Show Recipe" %></td>
                 <% if current_user != nil %>
                   <% if current_user.name == recipe.userName %>
