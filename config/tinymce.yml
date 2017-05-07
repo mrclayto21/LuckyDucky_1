@@ -1,0 +1,13 @@
+menubar: false
+resize: false
+
+height: "150"
+width: "525"
+
+toolbar: 
+    - styleselect | bold italic | undo redo | bullist | numlist | outdent | indent | blockquote
+plugins: 
+    - paste
+    - wordcount
+    - searchreplace
+    - preview

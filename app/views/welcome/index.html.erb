@@ -3,7 +3,7 @@
     <!--signin-->
     <div class="content">
         <div class="navigation">
-            <ul>
+            <ul class="navUL">
                 <li>
                     <%= link_to "", root_path, class: "fa fa-home fa-2x", :title =>  "Home" %> 
                 </li>
@@ -12,7 +12,7 @@
                 </li>
                 <% if current_user %>
                 <li>
-                    <%= link_to '', new_recipe_path, class: "fa fa-plus-circle fa-2x", :title => "Add a Recipe" %>
+                    <%= link_to '', new_recipe_path, class: "fa fa-plus-circle fa-2x", :title => "Add a Recipe", 'data-no-turbolink' => true %>
                 </li>
                 <% end %>
                 <% if current_user %>

@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
     
     def new
         @recipe = Recipe.new
+
     end
     
     def create
@@ -47,3 +48,4 @@ private
     def recipe_params
         params.require(:recipe).permit(:userName, :prime, :name, :prep, :complete, :ingredients, :directions, :secondary)
     end
+    

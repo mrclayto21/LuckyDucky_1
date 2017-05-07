@@ -10,7 +10,7 @@
                 </li>
                 <% if current_user %>
                 <li>
-                    <%= link_to '', new_recipe_path, class: "fa fa-plus-circle fa-2x", :title => "Add a Recipe" %>
+                    <%= link_to '', new_recipe_path, class: "fa fa-plus-circle fa-2x", :title => "Add a Recipe", 'data-no-turbolink' => true %>
                 </li>
                 <% else %>
                  

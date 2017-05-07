@@ -1,3 +1,4 @@
+<%= tinymce_assets %>
 <div class="form_container">
   <div class="left_align_form">
     <%= form_for @recipe do |f| %>
@@ -25,13 +26,13 @@
         </li>
         <li>
           <%= f.label :secondary, "Additional Types", Class: "box_Font"  %><br>
-          <%= f.select :secondary, options_for_select([['Gluten-free', 1],
+          <%= f.select :secondary, options_for_select([['None', 0], ['Gluten-free', 1],
               ['Lactose-free', 2], ['Vegan', 3], ['Vegetarian', 4], 
               ['Low Calorie', 5], ['Low Fat', 6], ['Diabetic', 7], ['Slow Cooker']]) %>  
         </li>
       </div> <!-- end form_to_center -->
     </ul> <!-- end new_form -->
-  <br>
+ 
     <ul class="new_form">
       <div class="form_to_center">
         <li>
@@ -45,16 +46,16 @@
       </div> <!-- end form_to_center -->
     </ul> <!-- end new_form -->
   </div> <!-- end left_align_form -->
-  <!--</div> --> <!-- forces ingredients out of the form -->
+  <!--</div> --> 
   <div>
     <ul class= "new_form_2">
       <li>
-        <%= f.label :ingredients, "Ingredients ", class: "box_Font" %> <br>
-        <%= f.text_area :ingredients, cols:"55", rows: "10" %>
+        <%= f.label :ingredients, "Ingredients ", class: "box_Font"%> <br>
+        <%= f.text_area :ingredients,  :class => "tinymce" %>
       </li>
       <li>
         <%= f.label :directions, "Directions     ", class: "box_Font" %><br>
-        <%= f.text_area :directions, cols:"55", rows: "10" %>
+        <%= f.text_area :directions, placeholder: "Directions", :class => "tinymce"%>
       </li>
     </ul>
       <br>
@@ -62,3 +63,4 @@
   <%= f.submit "Add a Recipe" %>
     <% end %>
 </div>
+<%= tinymce %>

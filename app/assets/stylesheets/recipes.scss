@@ -53,10 +53,10 @@ a:-webkit-any-link {
 }
 
 .form_container {
-
   width: 99%;
-  min-height: 800px;
-  margin: -1px;
+  min-height: 850px;
+  padding: 5px;
+  margin: 0px;
   overflow: scroll;
   position: relative;
 }
@@ -85,14 +85,26 @@ a:-webkit-any-link {
   text-align: left;
   line-height: 20px;
   height: auto;
+  margin: 0 auto;
+  background: white;
 }
 
-ul {
+.left_align_form_2 {
+  overflow-y: auto;
+  text-align: left;
+  line-height: 25px;
+  height: auto;
+  margin: 0 auto;
+  background: white;
+  padding:5px;
+}
+
+.navUL {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333333;
+  background-color: #35160B;
   display: inline-block;
   width: 100%;
   height: 70px;
@@ -113,10 +125,10 @@ ul {
 .new_form_2 {
   border: .5px solid #F5F5F5;
   list-style-type: none;
-  display: inline-blockd;
+  display: inline-block;
   text-align: center;
-  margin: 0 auto;
-  padding: 0px;
+  margin: 5px auto;
+  padding: 2px;
   background-color: white;
   color: #AF1609;
   width: 99%;
@@ -131,13 +143,14 @@ ul {
   height: auto;
   margin: 0 auto;
   text-align: center;
+  line-height: 17px;
 }
 
 
-li {
+.navUL li {
   float: left;
   color: white;
-  font-size: 8px;
+  font-size: 16px;
   margin: 0 auto;
 }
 
@@ -153,6 +166,7 @@ li {
   margin: 0 auto;
 }
 
+
 // Used to center ingredients and directions
 // will appear as two columns in fullscreen mode
 .new_form_2 li {
@@ -161,7 +175,7 @@ li {
   color: red;
   font-size: 16px;
   padding: 10px;
-  height: 175px;
+  height: 240px;
   width: 550px;
   text-align: center;
   // margin: 0, auto;
@@ -206,6 +220,27 @@ td {
   height: 20px;
   font-size: 14px;
 }
+
+.left_align_form_2 ul {
+  float: left;
+  display: inline-block;
+  background: white;
+  font-size: 16px;
+}
+
+.left_align_form_2 li {
+  line-height: 20px;
+  margin: 0px auto;
+  color: black;
+  font-size: 16px;
+}
+
+ol {
+  display: block;
+  margin-top: 1em;
+}
+
+
 // ------ STYLING FOR FORM ------
 // button style 
 input[type=submit] {
@@ -216,7 +251,7 @@ input[type=submit] {
   border: none;
   font-size: 90%;
   cursor: pointer;
-  height: 20px;
+  height: 22px;
 }
 
 // listbox style
