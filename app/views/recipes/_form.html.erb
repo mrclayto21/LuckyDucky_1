@@ -22,13 +22,11 @@
       <div class="form_to_center">
         <li>
           <%= f.label :prime, "Recipe Type",  class: "box_Font" %><br>
-          <%= f.select :prime, options_for_select([['Breakfast ', 1], ['Lunch', 2], ['Diner', 3], ['Dessert', 4], ['Drink', 5]]) %>
+          <%= f.select :prime, collection: Recipe::CATEGORY %>
         </li>
         <li>
           <%= f.label :secondary, "Additional Types", Class: "box_Font"  %><br>
-          <%= f.select :secondary, options_for_select([['None', 0], ['Gluten-free', 1],
-              ['Lactose-free', 2], ['Vegan', 3], ['Vegetarian', 4], 
-              ['Low Calorie', 5], ['Low Fat', 6], ['Diabetic', 7], ['Slow Cooker']]) %>  
+          <%= f.select :secondary, collection: Recipe::SECONDARY %>  
         </li>
       </div> <!-- end form_to_center -->
     </ul> <!-- end new_form -->
@@ -37,11 +35,11 @@
       <div class="form_to_center">
         <li>
           <%= f.label :prep, "Preparation Time"  , class: "box_Font" %><br>
-          <%= f.number_field :prep, min: 0, :value => 0 %>
+          <%= f.number_field :prep, min: 0, :value => @recipe.prep || 0 %>
         </li>
         <li>
           <%= f.label :complete, "Total Time" , class: "box_Font" %><br>
-          <%= f.number_field :complete, min: 0, :value => 0 %>
+          <%= f.number_field :complete, min: 0, :value => @recipe.complete || 0 %>
         </li>
       </div> <!-- end form_to_center -->
     </ul> <!-- end new_form -->

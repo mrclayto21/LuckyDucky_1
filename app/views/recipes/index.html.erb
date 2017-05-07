@@ -35,18 +35,20 @@
           <!--content-->
           <table>
             <tr>
-              <th>Recipe Name</th>
-              <th>Category</th>
+              <th></th>
+              <th> </th>
+              <th> </th>
             </tr>
            
             <% @recipes.each do |recipe| %>
               <tr>
+                <td class = "table_internal"><%= Recipe::SECONDARY.find {|sec| sec[1] == recipe.secondary} [0] %><br></td>
+                <td class = "table_internal"><%= Recipe::CATEGORY.find {|cat| cat[1] == recipe.prime } [0] %><br></td>
                 <td><%= recipe.name %></td>
-                <td class = "table_internal"><%= recipe.prime %></td>
                 <td class = "table_internal"><%= link_to '', recipe_path(recipe), class: "fa fa-eye", :title => "Show Recipe" %></td>
                 <% if current_user != nil %>
                   <% if current_user.name == recipe.userName %>
-                  <td class = "table_internal"><%= link_to '', recipe_path(recipe), class: "fa fa-pencil-square-o", :title => "Edit Recipe" %></td>
+                  <td class = "table_internal"><%= link_to '', edit_recipe_path(recipe), class: "fa fa-pencil-square-o", :title => "Edit Recipe" %></td>
                   <% end %>
                   <% if current_user.name == recipe.userName %>
                     <td class = "table_internal"><%= link_to '', recipe_path(recipe), method: :delete, data: {confirm: 'Are you sure?' }, class: "fa fa-trash", :title => "Delete Recipe" %></td>

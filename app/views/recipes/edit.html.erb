@@ -1,0 +1,38 @@
+<div class="content">
+        <div class="navigation">
+            <ul class="navUL">
+                <li>
+                    <%= link_to "", root_path, class: "fa fa-home fa-2x", :title =>  "Home" %> 
+                </li>
+                <li>
+                    <%= link_to '', recipes_path, class: "fa fa-cutlery fa-2x", :title => "Recipes" %>
+                </li>
+                <% if current_user %>
+                <li>
+                    <%= link_to '', new_recipe_path, class: "fa fa-plus-circle fa-2x", :title => "Add a Recipe", 'data-no-turbolink' => true %>
+                </li>
+                <% end %>
+                <% if current_user %>
+                <!--<li id= "nav_right">-->
+                <!--    <strong><%= current_user.name %></strong><br>-->
+                <!--</li>-->
+                <li id= "nav_right">
+                    <%= link_to " Sign-out", signout_path, id: "sign_out", class: "fa fa-sign-out fa-2x", :title => "Sign Out" %>
+                </li>
+                <% else %>
+                <li id= "nav_right">
+                    <%= link_to " Sign-in", "/auth/google_oauth2", id: "sign_in", class: "fa fa-sign-in fa-2x", :title => "Sign In" %>
+                </li>
+                <% end %>
+                <%= yield %>
+            </ul>
+            
+        </div>
+        <div class="testingTitle" style="height:60px">Add a Recipe!</div>
+        <div class="left_align_form">
+            <%= render 'form' %>
+        </div>
+        
+    </div>
+
+

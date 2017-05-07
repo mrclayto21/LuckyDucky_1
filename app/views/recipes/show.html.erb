@@ -36,10 +36,10 @@
     <%= raw @recipe.userName %><br>
     <strong class="box_Font">Recipe Title| </strong>
     <%= raw @recipe.name %><br>
-    <%= raw @recipe.prime %><br>
-    <%= raw @recipe.secondary %><br>
+    <%= Recipe::CATEGORY.find {|cat| cat[1] == @recipe.prime } [0] %><br>
+    <%= Recipe::SECONDARY.find {|sec| sec[1] == @recipe.secondary} [0] %><br>
     <strong class="box_Font">Preparation Time| </strong>
-    <%= raw @recipe.prep %> minutes <br>
+    <%= raw @recipe.prep%> minutes <br>
     <strong class="box_Font">Total Time| </strong>
     <%= raw @recipe.complete %> minutes <br>
    <div class="left_align_form_2">
